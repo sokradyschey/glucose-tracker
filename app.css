@@ -10,12 +10,8 @@ body {
 }
 
 .tracker-container {
+    display: grid;
+    grid-gap: 5px 20px;
     border-style: inset;
     padding: 10px;
-}
-
-form {
-    display: grid;
-    grid-template-columns: auto auto;
-    row-gap: 20px;
 }

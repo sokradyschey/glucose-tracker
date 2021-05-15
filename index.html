@@ -18,12 +18,13 @@
             <h2>Glucose Tracker</h2>
             <h3>Blood Glucose</h3>
         </div>
+        <!-- BG Daily Summary -->
         <div>
             <h3>Daily Summary</h3>
         </div>
+        <!-- BG tracking form -->
         <div class="tracker-container">
             <h3>Tracking Levels</h3>
-            <form action="/action_page.php">
                 <label for="bglevel">BG Levels:</label>
                 <input type="text" id="bglevel" name="bglevel">
                 <label for="time">Time:</label>
@@ -38,12 +39,20 @@
                 </select>
                 <label for="notes">Notes:</label>
                 <textarea id="notes" name="notes"></textarea>
-            </form>
             <button id="save" type="save" form="form1" value="save">Save</button>
             <button id="cancel" type="cancel" form="form1" value="cancel">Cancel</button>
         </div>
     </div>
-    <div id="root"></div>
+    <!-- BG Entries -->
+    <div class="grid-container">
+        <div class="bg-entry-container">
+            <h3>Entries</h3>
+            <ul id="entry-list">
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
     <script src="index.js"></script>
 </body>
 </html>

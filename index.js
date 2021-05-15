@@ -11,3 +11,8 @@ function newEntry() {
     }
     document.getElementById("entryValue").value = "";
 }
+
+// Clear Entry
+function cancelEntry() {
+    document.getElementById('bglevel').value = ''
+}

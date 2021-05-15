@@ -1,4 +1,21 @@
 body {
-    min-height: 100vh;
-    background-color: #e1e1e1;
+    display: grid;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.tracker-container {
+    border-style: inset;
+    padding: 10px;
+}
+
+form {
+    display: grid;
+    grid-template-columns: auto auto;
+    row-gap: 20px;
 }

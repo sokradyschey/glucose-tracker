@@ -8,6 +8,32 @@
     <title>Glucose Tracker App</title>
 </head>
 <body>
+    <nav>
+        <a href="/" class="nav__link" data-link>Dashboard</a>
+        <a href="/posts" class="nav__link" data-link>Posts</a>
+        <a href="/settings" class="nav__link" data-link>Settings</a>
+    </nav>
+    <div class="grid-container">
+        <div>
+            <h2>Glucose Tracker</h2>
+            <h3>Blood Glucose</h3>
+        </div>
+        <div>
+            <h3>Daily Summary</h3>
+        </div>
+        <div class="tracker-container">
+            <h3>Tracking Levels</h3>
+            <form action="/action_page.php">
+                <label for="bglevel">BG Levels:</label>
+                <input type="text" id="bglevel" name="bglevel">
+                <label for="time">Time:</label>
+                <input type="text" id="time" name="time">
+                <label for="notes">Notes:</label>
+                <textarea id="notes" name="notes"></textarea>
+            </form>
+            <button id="submit" type="submit" form="form1" value="Submit">Submit</button>
+        </div>
+    </div>
     <div id="root"></div>
     <script src="index.js"></script>
 </body>

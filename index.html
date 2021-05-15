@@ -27,11 +27,20 @@
                 <label for="bglevel">BG Levels:</label>
                 <input type="text" id="bglevel" name="bglevel">
                 <label for="time">Time:</label>
-                <input type="text" id="time" name="time">
+                <input type="time" id="time" name="time" min="09:00" max="18:00">
+                <label for="meal">Meal:</label>
+                <select id="meal" name="meal">
+                    <option value="fasting">Fasting</option>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                    <option value="snack">Snack</option>
+                </select>
                 <label for="notes">Notes:</label>
                 <textarea id="notes" name="notes"></textarea>
             </form>
-            <button id="submit" type="submit" form="form1" value="Submit">Submit</button>
+            <button id="save" type="save" form="form1" value="save">Save</button>
+            <button id="cancel" type="cancel" form="form1" value="cancel">Cancel</button>
         </div>
     </div>
     <div id="root"></div>

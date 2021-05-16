@@ -20,6 +20,7 @@
         <!-- BG tracking form -->
         <div class="tracker-container">
             <h3>Tracking Levels</h3>
+            <form id="trackingValue">
                 <label for="levels">BG Levels:</label>
                 <input type="text" id="levels" name="levels">
                 <label for="time">Time:</label>
@@ -32,20 +33,16 @@
                     <option value="dinner">Dinner</option>
                     <option value="snack">Snack</option>
                 </select>
-                <label for="notes">Notes:</label>
-                <textarea id="notes" name="notes"></textarea>
-            <button onClick="newEntry()" id="save" type="save" value="save">Save</button>
+            <button type="submit">Save</button>
             <button onclick="cancelEntry()">Clear</button>
+            </form>
         </div>
     </div>
     <!-- BG Entries -->
     <div class="grid-container">
         <div class="bg-entry-container">
             <h3>Entries</h3>
-            <p><span id="displayLevels"></span></p>
-            <p><span id="displayTime"></span></p>
-            <p><span id="displayMeal"></span></p>
-            <p><span id="displayNotes"></span></p>
+            <ul id="trackingList"></ul>
         </div>
     </div>
 

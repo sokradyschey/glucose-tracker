@@ -5,6 +5,11 @@ body {
     background-color: #efefef;
 }
 
+form {
+    display: grid;
+    grid-gap: 10px 20px;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: auto auto;
@@ -12,7 +17,6 @@ body {
 
 .tracker-container {
     display: grid;
-    grid-gap: 5px 20px;
     border-style: inset;
     padding: 10px;
     background-color: #fff;

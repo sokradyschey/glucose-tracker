@@ -2,6 +2,7 @@ body {
     display: grid;
     font-family: 'Quicksand', sans-serif;
     font-size: 18px;
+    background-color: #efefef;
 }
 
 .grid-container {
@@ -14,4 +15,5 @@ body {
     grid-gap: 5px 20px;
     border-style: inset;
     padding: 10px;
+    background-color: #fff;
 }

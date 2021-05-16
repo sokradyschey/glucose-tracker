@@ -1,23 +1,22 @@
 // Creating a new entry 
-// function newEntry() {
-//     let li = document.createElement("li");
-//     let entryValue = document.getElementById("bglevel").value;
-//     let text = document.createTextNode(entryValue);
-//     li.appendChild(text);
-//     if (entryValue === '') {
-//         alert("Add your BG Levels");
-//     } else {
-//         document.getElementById("entryList").appendChild(li);
-//     }
-//     document.getElementById("entryValue").value = "";
-// }
+function newEntry() {
+    document.getElementById('displayLevels').innerHTML = 
+    document.getElementById('levels').value;
 
-function entry() {
-    document.getElementById('display') .innerHTML =
-        document.getElementById('levels').value;
+    document.getElementById('displayTime').innerHTML = 
+    document.getElementById('time').value;
+
+    document.getElementById('displayMeal').innerHTML = 
+    document.getElementById('meal').value;
+
+    document.getElementById('displayNotes').innerHTML = 
+    document.getElementById('notes').value;
 }
 
 // Clear Entry
 function cancelEntry() {
-    document.getElementById('bglevel').value = ''
+    document.getElementById('levels').value = '';
+    document.getElementById('time').value = '';
+    document.getElementById('meal').value = '';
+    document.getElementById('notes').value = '';
 }

@@ -15,8 +15,7 @@ trackingValue.addEventListener('submit', function(e) {
     // if (displayMeal.value.length < 1) return;
 
     // Add Blood Sugar Values
-    trackingList.innerHTML += 
-    '<li>' + displayLevels.value + '</li>';
+    trackingList.innerHTML += displayLevels.value + ' ' + 'mg/dL';
     // '<li>' + displayTime.value + '</li>' + 
     // '<li>' + displayMeal.value + '</li>';
 
@@ -47,8 +46,18 @@ function clearForm() {
 
 // Creating an array from form data
 var levels = [];
+var total = 0;
+
 function submitLevels() {
     sugarLevels = document.getElementById('levels').value;
     levels.push(sugarLevels);
     console.log(levels);
+
+    // Calculating the average
+    for (var i = 0; i < levels.length; i++) {
+        total += levels[i];
+    }
+    var avg = total / levels.length;
+    console.log(avg);
 }
+

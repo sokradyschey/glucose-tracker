@@ -13,6 +13,7 @@ form {
 .gridContainer {
     display: grid;
     grid-template-columns: auto auto;
+    grid-gap: 10px 20px;
 }
 
 .trackerContainer {

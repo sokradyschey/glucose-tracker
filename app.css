@@ -10,14 +10,18 @@ form {
     grid-gap: 10px 20px;
 }
 
-.grid-container {
+.gridContainer {
     display: grid;
     grid-template-columns: auto auto;
 }
 
-.tracker-container {
+.trackerContainer {
     display: grid;
     border-style: inset;
     padding: 10px;
     background-color: #fff;
+}
+
+#trackingList{
+    grid-column-start: 1;
 }

@@ -8,7 +8,7 @@
     <title>Glucose Tracker App</title>
 </head>
 <body>
-    <div class="grid-container">
+    <div class="gridContainer">
         <div>
             <h2>Glucose Tracker</h2>
             <h3>Blood Glucose</h3>
@@ -16,14 +16,18 @@
         <!-- BG Daily Summary -->
         <div>
             <h3>Daily Summary</h3>
+            <p>Average Fasting:</p>
+            <p>Average Post Breakfast:</p>
+            <p>Average Post Lunch:</p>
+            <p>Average Post Dinner:</p>
         </div>
         <!-- BG tracking form -->
-        <div class="tracker-container">
+        <div class="trackerContainer">
             <h3>Tracking Levels</h3>
             <form id="trackingValue">
                 <label for="levels">BG Levels:</label>
                 <input type="text" id="levels" name="levels">
-                <label for="time">Time:</label>
+                <!-- <label for="time">Time:</label>
                 <input type="time" id="time" name="time">
                 <label for="meal">Meal:</label>
                 <select id="meal" name="meal">
@@ -32,18 +36,16 @@
                     <option value="lunch">Lunch</option>
                     <option value="dinner">Dinner</option>
                     <option value="snack">Snack</option>
-                </select>
-            <button type="submit">Save</button>
+                </select> -->
+            <button type="submit" onclick="submitLevels()">Save</button>
             <button onclick="clearForm()">Clear</button>
             </form>
         </div>
     </div>
     <!-- BG Entries -->
-    <div class="grid-container">
-        <div class="bg-entry-container">
+    <div class="gridContainer">
             <h3>Entries</h3>
-            <ul id="trackingList"></ul>
-        </div>
+            <p id="trackingList"></p>
     </div>
 
     <script src="index.js"></script>

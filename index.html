@@ -15,6 +15,13 @@
             <form id="trackingValue" class="trackerContainer">
                 <label for="levels">BG Levels:</label>
                 <input type="number" id="levels" name="levels">
+                <label for="meal">Meal:</label>
+                <select id="meal" name="meal">
+                    <option value="Fasting">Fasting</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
+                </select>
             <button type="submit" onclick="submitLevels()">Save</button>
             <button onclick="clearForm()">Clear</button>
             </form>
@@ -22,11 +29,14 @@
         <!-- BG Daily Summary -->
         <div>
             <h3>Daily Summary</h3>
-            <p>Daily Average: <span id="dailyAvg"></span> mg/dL</p>
+            <p>Daily Fasting: <span id="dailyFasting"></span></p>
+            <p>Daily Breakfast: <span id="dailyBreakfast"></span></p>
+            <p>Daily Lunch: <span id="dailyLunch"></span></p>
+            <p>Daily Dinner: <span id="dailyDinner"></span></p>
+            <p>Daily Average: <span id="dailyAvg"></span></p>
         </div>
         <!-- BG tracking form -->
     </div>
-    BG Entries
     <div class="gridContainer">
             <h3>Entries</h3>
             <p id="trackingList"></p>

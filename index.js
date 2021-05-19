@@ -49,8 +49,8 @@ function submitLevels() {
 
     let avg = total / levels.length;
 
-    document.getElementById('dailyAvg').innerHTML = avg;
-    
+    document.getElementById('dailyAvg').innerHTML = avg + ' ' + 'mg/dL';
+
     console.log(`the total is ${total}`);
     console.log(`the average is ${avg}`);
 }

@@ -14,17 +14,7 @@
             <h3>Blood Glucose</h3>
             <form id="trackingValue" class="trackerContainer">
                 <label for="levels">BG Levels:</label>
-                <input type="text" id="levels" name="levels">
-                <!-- <label for="time">Time:</label>
-                <input type="time" id="time" name="time">
-                <label for="meal">Meal:</label>
-                <select id="meal" name="meal">
-                    <option value="fasting">Fasting</option>
-                    <option value="breakfast">Breakfast</option>
-                    <option value="lunch">Lunch</option>
-                    <option value="dinner">Dinner</option>
-                    <option value="snack">Snack</option>
-                </select> -->
+                <input type="number" id="levels" name="levels">
             <button type="submit" onclick="submitLevels()">Save</button>
             <button onclick="clearForm()">Clear</button>
             </form>
@@ -32,19 +22,15 @@
         <!-- BG Daily Summary -->
         <div>
             <h3>Daily Summary</h3>
-            <p>Daily Fasting: <span id="trackingList"></span></p>
-            <p>Daily Post Breakfast:</p>
-            <p>Daily Post Lunch:</p>
-            <p>Daily Post Dinner:</p>
-            <p>Daily Average:</p>
+            <p>Daily Average: <span id="dailyAvg"></span> mg/dL</p>
         </div>
         <!-- BG tracking form -->
     </div>
-    <!-- BG Entries
+    BG Entries
     <div class="gridContainer">
             <h3>Entries</h3>
             <p id="trackingList"></p>
-    </div> -->
+    </div>
 
     <script src="index.js"></script>
 </body>

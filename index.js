@@ -50,33 +50,40 @@ function submitLevels() {
     let avg = total / levels.length;
     document.getElementById('dailyAvg').innerHTML = (`${avg} mg/dL`);
 
-    // If Fasting Levels are less than 70 or greater than 89 change to Red and alert user
-    let postMeal = document.querySelector('.postMeal');
+    let mealType = document.querySelector('#meal');
     let fasting = document.querySelector('#dailyFasting');
-    
-    if ((sugarLevels <= 70) || (sugarLevels >= 89)) {
-        fasting.style.color = 'red';  
-    } else (fasting.style.color = 'green'); 
+    let breakfast = document.querySelector('#dailyBreakfast');
+    let lunch = document.querySelector('#dailyLunch');
+    let dinner = document.querySelector('#dailyDinner');
 
-    // If Post Meal Levels are less than 70 or greater than 129 change to Red and alert user
-    if ((sugarLevels <= 70) || (sugarLevels >= 129)) {
-        postMeal.style.color = 'red'; 
-    } else (postMeal.style.color.style.color = 'green');
-
-    // Meal Type to display according to Daily Summary
-    if (document.getElementById('meal').value == document.getElementById('fastingValue').value) {
+    // If levels are in range change to green. If out of Range levels change to red.
+    if (mealType.value == document.getElementById('fastingValue').value && (sugarLevels <= 70 || sugarLevels >= 89)) {
         fasting.innerHTML = (`${sugarLevels} mg/dL`);
-    } else if (document.getElementById('meal').value == document.getElementById('postBreakfast').value) {
-        document.getElementById('dailyBreakfast').innerHTML = (`${sugarLevels} mg/dL`);
-    } else if (document.getElementById('meal').value == document.getElementById('postLunch').value) {
-        document.getElementById('dailyLunch').innerHTML = (`${sugarLevels} mg/dL`);
-    } else if (document.getElementById('meal').value == document.getElementById('postDinner').value) {
-        document.getElementById('dailyDinner').innerHTML = (`${sugarLevels} mg/dL`);
-    } else { document.getElementById('dailyAvg').innerHTML = (`${avg} mg/dL`); };
+        fasting.style.color = 'red';
+    } else if (mealType.value == document.getElementById('fastingValue').value && (sugarLevels > 70 || sugarLevels < 89)) {
+        fasting.innerHTML = (`${sugarLevels} mg/dL`);
+        fasting.style.color = 'green';
+    } else if (mealType.value == document.getElementById('postBreakfast').value && (sugarLevels <= 70 || sugarLevels >= 129)) {
+        breakfast.innerHTML = (`${sugarLevels} mg/dL`);
+        breakfast.style.color = 'red';
+    } else if (mealType.value == document.getElementById('postBreakfast').value && (sugarLevels > 70 || sugarLevels < 129)) {
+        breakfast.innerHTML = (`${sugarLevels} mg/dL`);
+        breakfast.style.color = 'green'; 
+    } else if (mealType.value == document.getElementById('postLunch').value && (sugarLevels <= 70 || sugarLevels >= 129)) {
+        lunch.innerHTML = (`${sugarLevels} mg/dL`);
+        lunch.style.color = 'red';
+    } else if (mealType.value == document.getElementById('postLunch').value && (sugarLevels > 70 || sugarLevels < 129)) {
+        lunch.innerHTML = (`${sugarLevels} mg/dL`);
+        lunch.style.color = 'green';
+    } else if (mealType.value == document.getElementById('postDinner').value && (sugarLevels <= 70 || sugarLevels >= 129)) {
+        dinner.innerHTML = (`${sugarLevels} mg/dL`);
+        dinner.style.color = 'red';
+    } else if (mealType.value == document.getElementById('postDinner').value && (sugarLevels > 70 || sugarLevels < 129)) {
+        dinner.innerHTML = (`${sugarLevels} mg/dL`);
+        dinner.style.color = 'green';
+    } else {return false};
 
-
-    console.log(`the total is ${total}`);
-    console.log(`the average is ${avg}`);
+    console.log(`Level = ${breakfast}`);
 }
 
 // Change the color accordingly if range is above or below limits 

@@ -1,7 +1,6 @@
 // Creating a new entry 
 let trackingValue = document.querySelector('#trackingValue');
 let displayLevels = document.querySelector('#levels');
-let displayMeals = document.querySelector('#meal');
 let trackingList = document.querySelector('#trackingList');
 
 trackingValue.addEventListener('submit', function(e) {
@@ -16,7 +15,6 @@ trackingValue.addEventListener('submit', function(e) {
 
     // Clear Inputs
     displayLevels.value = '';
-    displayMeals.value = '';
 
     // Save Values to Local Storage
     localStorage.setItem('displayLevels', trackingList.innerHTML);
@@ -53,14 +51,21 @@ function submitLevels() {
     document.getElementById('dailyAvg').innerHTML = (`${avg} mg/dL`);
 
     // If Fasting Levels are less than 70 or greater than 89 change to Red and alert user
+    let postMeal = document.querySelector('.postMeal');
+    let fasting = document.querySelector('#dailyFasting');
+    
     if ((sugarLevels <= 70) || (sugarLevels >= 89)) {
-        document.getElementById('dailyFasting').style.color = 'red';
-        alert(`You're fasting levels are out of range!`);  
-    } else (document.getElementById('dailyFasting').style.color = 'green'); 
+        fasting.style.color = 'red';  
+    } else (fasting.style.color = 'green'); 
+
+    // If Post Meal Levels are less than 70 or greater than 129 change to Red and alert user
+    if ((sugarLevels <= 70) || (sugarLevels >= 129)) {
+        postMeal.style.color = 'red'; 
+    } else (postMeal.style.color.style.color = 'green');
 
     // Meal Type to display according to Daily Summary
     if (document.getElementById('meal').value == document.getElementById('fastingValue').value) {
-        document.getElementById('dailyFasting').innerHTML = (`${sugarLevels} mg/dL`);
+        fasting.innerHTML = (`${sugarLevels} mg/dL`);
     } else if (document.getElementById('meal').value == document.getElementById('postBreakfast').value) {
         document.getElementById('dailyBreakfast').innerHTML = (`${sugarLevels} mg/dL`);
     } else if (document.getElementById('meal').value == document.getElementById('postLunch').value) {

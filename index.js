@@ -1,41 +1,11 @@
-// Creating a new entry 
-let trackingValue = document.querySelector('#trackingValue');
-let displayLevels = document.querySelector('#levels');
-let trackingList = document.querySelector('#trackingList');
-
-trackingValue.addEventListener('submit', function(e) {
-    // Don't submit the form
-    e.preventDefault();
-
-    // Ignore if form is empty
-    if (displayLevels.value.length < 1) return;
-
-    // Add Blood Sugar Values
-    trackingList.innerHTML += (`${displayLevels.value} mg/dL` + '<br>');
-
-    // Clear Inputs
-    displayLevels.value = '';
-
-    // Save Values to Local Storage
-    localStorage.setItem('displayLevels', trackingList.innerHTML);
-
-}, false);
-
-// Check for Saved Blood Sugar Values
-const savedValues = localStorage.getItem('displayLevels');
-
-// If there are any saved items, update our list
-// if (savedValues) {
-// 	trackingList.innerHTML = savedValues;
-// }
-
-// Clear Form
-function clearForm() {
-    document.getElementById('levels').value = '';
-}
-
 // Creating an array from form data
 let levels = [];
+// Declaring variables based on combinations of meal types
+let mealType = document.querySelector('#meal');
+let fasting = document.querySelector('#dailyFasting');
+let breakfast = document.querySelector('#dailyBreakfast');
+let lunch = document.querySelector('#dailyLunch');
+let dinner = document.querySelector('#dailyDinner');
 
 function submitLevels() {
     let total = 0;
@@ -50,13 +20,7 @@ function submitLevels() {
     let avg = total / levels.length;
     document.getElementById('dailyAvg').innerHTML = (`${avg} mg/dL`);
 
-    let mealType = document.querySelector('#meal');
-    let fasting = document.querySelector('#dailyFasting');
-    let breakfast = document.querySelector('#dailyBreakfast');
-    let lunch = document.querySelector('#dailyLunch');
-    let dinner = document.querySelector('#dailyDinner');
-
-    // If levels are in range change to green. If out of Range levels change to red.
+    // If levels are in range change to green. If out of range change to red.
     if (mealType.value == document.getElementById('fastingValue').value && (sugarLevels <= 70 || sugarLevels >= 89)) {
         fasting.innerHTML = (`${sugarLevels} mg/dL`);
         fasting.style.color = 'red';
@@ -82,8 +46,38 @@ function submitLevels() {
         dinner.innerHTML = (`${sugarLevels} mg/dL`);
         dinner.style.color = 'green';
     } else {return false};
-
-    console.log(`Level = ${breakfast}`);
 }
 
-// Change the color accordingly if range is above or below limits 
+// Clear Form
+function clearForm() {
+    document.getElementById('levels').value = '';
+}
+
+// Creating a new entry 
+let trackingValue = document.querySelector('#trackingValue');
+let displayLevels = document.querySelector('#levels');
+let trackingList = document.querySelector('#trackingList');
+
+
+trackingValue.addEventListener('submit', function(e) {
+    // Don't submit the form
+    e.preventDefault();
+
+    // Ignore if form is empty
+    if (displayLevels.value.length < 1) return;
+
+    // Add Form Values
+    if (mealType.value == document.getElementById("fastingValue").value) {
+        trackingList.innerHTML += (`${mealType.value}: ${displayLevels.value} mg/dL` + '<br>');
+    } else if (mealType.value == document.getElementById("postBreakfast").value) {
+        trackingList.innerHTML += (`${mealType.value}: ${displayLevels.value} mg/dL` + '<br>');
+    } else if (mealType.value == document.getElementById("postLunch").value) {
+        trackingList.innerHTML += (`${mealType.value}: ${displayLevels.value} mg/dL` + '<br>');
+    } else if (mealType.value == document.getElementById("postDinner").value) {
+        trackingList.innerHTML += (`${mealType.value}: ${displayLevels.value} mg/dL` + '<br>');
+    } else {return false};
+
+    // Clear Inputs
+    displayLevels.value = '';
+
+}, false);

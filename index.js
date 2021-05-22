@@ -17,7 +17,7 @@ trackingValue.addEventListener('submit', function(e) {
     // Clear Inputs
     displayLevels.value = '';
     displayMeals.value = '';
-    
+
     // Save Values to Local Storage
     localStorage.setItem('displayLevels', trackingList.innerHTML);
 
@@ -51,8 +51,14 @@ function submitLevels() {
 
     let avg = total / levels.length;
     document.getElementById('dailyAvg').innerHTML = (`${avg} mg/dL`);
-    
 
+    // If Fasting Levels are less than 70 or greater than 89 change to Red and alert user
+    if ((sugarLevels <= 70) || (sugarLevels >= 89)) {
+        document.getElementById('dailyFasting').style.color = 'red';
+        alert(`You're fasting levels are out of range!`);  
+    } else (document.getElementById('dailyFasting').style.color = 'green'); 
+
+    // Meal Type to display according to Daily Summary
     if (document.getElementById('meal').value == document.getElementById('fastingValue').value) {
         document.getElementById('dailyFasting').innerHTML = (`${sugarLevels} mg/dL`);
     } else if (document.getElementById('meal').value == document.getElementById('postBreakfast').value) {
@@ -67,3 +73,5 @@ function submitLevels() {
     console.log(`the total is ${total}`);
     console.log(`the average is ${avg}`);
 }
+
+// Change the color accordingly if range is above or below limits 

@@ -15,21 +15,31 @@ const server = http.createServer((req, res) => {
     // Check ext and set content type
     switch(extname) {
         case ".js":
-      contentType = "text/javascript";
-      break;
-    case ".css":
-      contentType = "text/css";
-      break;
-    case ".json":
-      contentType = "application/json";
-      break;
-    case ".png":
-      contentType = "image/png";
-      break;
-    case ".jpg":
-      contentType = "image/jpg";
-      break;
+            contentType = "text/javascript";
+            break;
+        case ".css":
+            contentType = "text/css";
+            break;
+        case ".json":
+            contentType = "application/json";
+            break;
+        case ".png":
+            contentType = "image/png";
+            break;
+        case ".jpg":
+            contentType = "image/jpg";
+            break;
     }
+
+    // Read File
+    fs.readFile(filePath, (err, content) => {
+        if(err) {
+            if(err.code == 'ENOENT') {
+                // Page Not Found
+            
+            }
+        }
+    })
 });
 
 const PORT = process.env.PORT || 5000;

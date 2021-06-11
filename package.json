@@ -1,0 +1,23 @@
+{
+  "name": "glucose-tracker",
+  "version": "1.0.0",
+  "description": "Glucose Tracker Project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sokradyschey/glucose-tracker.git"
+  },
+  "author": "Sokrady Chey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sokradyschey/glucose-tracker/issues"
+  },
+  "homepage": "https://github.com/sokradyschey/glucose-tracker#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

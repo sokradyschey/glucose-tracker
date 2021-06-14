@@ -1,6 +1,35 @@
+const express = require('express');
+const mysql = require('mysql');
 const http = require('http');
 const path = require('path');
 const fs = require('fs');
+
+// Create Connection
+const db = mysql.createConnection({    
+    host     : 'localhost',
+    user     : 'Sok',
+    password : '123456',
+});
+
+// Connection
+db.connect(() => {
+    if (err) {
+        throw err;
+    } 
+    console.log('MySQL Connected ...');
+});
+
+const app = express();
+
+// Create DB
+app.get('/createdb', (req, res) => {
+    let sql = 'CREATE DATABASE glucosedb';
+    db.query(sql, (err, result) => {
+        if (err) throw err;
+        console.log(result);
+        res.send('Database Created...');
+    })
+})
 
 const server = http.createServer((req, res) => {
     // Build File Path
